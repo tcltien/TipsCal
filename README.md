@@ -1,9 +1,9 @@
-# TipCal
+# TipsCal
 
-** TipCal ** is a tip calculator application for iOS.
+** TipsCal ** is a tip calculator application for iOS.
 
 Submitted by: LE HUYNH ANH TIEN
-Time spent: **10** hours spent in total
+Time spent: 10 hours spent in total
 
 Functionality is complete:
 
@@ -12,11 +12,8 @@ Functionality is complete:
 * [3] Using locale-specific currency.
 * [4] UI animations
 * [5] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
-
- Optional
-* [1] Remembering the bill amount across app restarts (if <10mins)
-
-* 
+* [6] Remembering the bill amount across app restarts (if <10mins)
+* [7] Change corlor in View
 
   Additional
 - [1] Improve design UI, UX
