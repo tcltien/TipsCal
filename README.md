@@ -12,7 +12,7 @@ Functionality is complete:
 * [3] Using locale-specific currency.
 * [4] UI animations
 * [5] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
-* [6] Remembering the bill amount across app restarts (if <10mins)
+* [6] Remembering the bill amount across app restarts 
 * [7] Change corlor in View
 
   Additional
