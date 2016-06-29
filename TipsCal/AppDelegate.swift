@@ -49,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        self.useLastValue()
+        
+        //self.vc.billField.text = String(self.defaults.doubleForKey("bill"))
         print("Did Become Active")
     }
 
@@ -69,10 +72,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(components.minute)
         print(lastMin)
         // if user close app more than 10 minutes, bill amount will change to 0
-        if beginMin - lastMin >= 10 || beginMin - lastMin < 0 {
+        if beginMin - lastMin >= 1 || beginMin - lastMin < 0 {
             self.defaults.setValue(0, forKeyPath: "bill")
         }
+        print(beginMin - lastMin >= 1)
+        print(beginMin - lastMin < 0)
         self.defaults.synchronize()
+        
     }
     
     func setLastValue() {

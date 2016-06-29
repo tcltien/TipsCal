@@ -72,15 +72,14 @@ class ViewController: UIViewController {
   
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print("Did Appear")
+        print("Did Appear2")
        
     }
 
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        defaults = NSUserDefaults.standardUserDefaults()
-        print("Will DID DISAPPEAR")
+        print("view Will  DISAPPEAR")
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -88,13 +87,21 @@ class ViewController: UIViewController {
         let billValue = NSString(string: billField.text!).doubleValue
         defaults.setDouble(billValue, forKey: "bill")
     
-
+        print("view Did Disappear")
     }
     
     
     // function handle when app re-open
     func reinstateBackgroundTask() {
         loca  = NSLocale.currentLocale().localeIdentifier
+        defaults = NSUserDefaults.standardUserDefaults()
+        let bill = defaults.doubleForKey("bill")
+        if (bill > 0) {
+            billField.text = String(format: "%d", Int(bill))
+        } else {
+            billField.text = ""
+        }
+        
         checkCurrency(loca)
         getTipsAmount(getPercent())
         
@@ -156,6 +163,8 @@ class ViewController: UIViewController {
             
             return 0;
         }
+        let billValue = NSString(string: billField.text!).doubleValue
+        defaults.setDouble(billValue, forKey: "bill")
         return total
        
     }
