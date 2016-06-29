@@ -15,11 +15,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var viewDetails: UIView!
     
+    @IBOutlet weak var validLabel: UILabel!
     
     @IBOutlet weak var buttonPercent: UIButton!
     var defaults = NSUserDefaults.standardUserDefaults()
     var loca  = NSLocale.currentLocale().localeIdentifier
     var currency = ""
+    var chkTime = NSDate()
+    var durationMin = 0;
     
     
     override func viewDidLoad() {
@@ -34,15 +37,12 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         checkCurrency(loca)
-        
         // handle when enter app in background
         [NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reinstateBackgroundTask), name: UIApplicationDidBecomeActiveNotification, object: nil)]
-        
                 
     }
 
     @IBAction func buttonClick(sender: AnyObject) {
-       
         let mapViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
         self.navigationController?.pushViewController(mapViewControllerObj, animated: true)
     }
@@ -72,28 +72,32 @@ class ViewController: UIViewController {
   
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        print("Did Appear")
        
     }
 
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        defaults = NSUserDefaults.standardUserDefaults()
+        print("Will DID DISAPPEAR")
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         let billValue = NSString(string: billField.text!).doubleValue
         defaults.setDouble(billValue, forKey: "bill")
+    
 
     }
     
     
     // function handle when app re-open
     func reinstateBackgroundTask() {
-        defaults = NSUserDefaults.standardUserDefaults()
         loca  = NSLocale.currentLocale().localeIdentifier
         checkCurrency(loca)
         getTipsAmount(getPercent())
+        
     }
     
     /*
@@ -128,18 +132,29 @@ class ViewController: UIViewController {
     func getTipsAmount(tipPercentage:Double) -> Double {
         
         var total:Double = 0.0
-        if let billAmount = Double(billField.text!) {
-            let tip = billAmount * tipPercentage
-            total = billAmount + tip
+        let billAmount = billField.text! as NSString
+        
+        if  Double(billAmount as String) != nil {
+            let tip = Double(billAmount.doubleValue) * tipPercentage
+            total = Double(billAmount.doubleValue) + tip
             
             tipLabel.text = String(format: "\(currency) %.2f",  tip)
             totalLabel.text = String(format: "\(currency) %.2f", total)
-            
+            validLabel.text = ""
         } else {
+            
             billField.attributedPlaceholder = NSAttributedString(string: currency)
             tipLabel.text = "\(currency)0.00"
             totalLabel.text = "\(currency)0.00"
-            return 0
+            validLabel.text = "Invalid Input!"
+            validLabel.textColor = UIColor.redColor()
+            
+            if (billAmount  == "") {
+                validLabel.text = ""
+                validLabel.textColor = UIColor.whiteColor()
+            }
+            
+            return 0;
         }
         return total
        

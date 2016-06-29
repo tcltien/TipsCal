@@ -70,6 +70,13 @@
                                     <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="AQp-Jw-A9Y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pQp-5a-Co9">
+                                <rect key="frame" x="0.0" y="163" width="222" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -86,12 +93,13 @@
                         <outlet property="buttonPercent" destination="RvT-1d-yzl" id="khs-hP-YiM"/>
                         <outlet property="tipLabel" destination="bM8-HS-ona" id="TK5-oj-qpe"/>
                         <outlet property="totalLabel" destination="SoQ-hs-M9c" id="WLx-P2-vXK"/>
+                        <outlet property="validLabel" destination="pQp-5a-Co9" id="uY5-YK-uvf"/>
                         <outlet property="viewDetails" destination="Adz-ix-D28" id="xrr-EJ-p4j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="-94"/>
+            <point key="canvasLocation" x="47" y="-360"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N6i-Ef-3dD">
@@ -109,7 +117,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMa-o6-cK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10" y="-214"/>
+            <point key="canvasLocation" x="-344" y="-360"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="61L-tg-zfr">
@@ -165,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4K-Hj-Oor" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123" y="61"/>
+            <point key="canvasLocation" x="441" y="-360"/>
         </scene>
     </scenes>
     <resources>
